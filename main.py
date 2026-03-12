@@ -27,13 +27,19 @@ class InternetSpeedTwitterBot:
     def get_internet_speed(self):
 
         self.driver.get("https://www.speedtest.net/")
+        time.sleep(5)
 
-        time.sleep(3)
+        # Accept cookies if popup appears
+        try:
+            accept = self.driver.find_element(By.ID, "onetrust-accept-btn-handler")
+            accept.click()
+            time.sleep(2)
+        except:
+            pass
 
         start = self.driver.find_element(By.CLASS_NAME, "start-text")
         start.click()
 
-        # wait for speed test to complete
         time.sleep(60)
 
         self.down = float(
@@ -43,9 +49,6 @@ class InternetSpeedTwitterBot:
         self.up = float(
             self.driver.find_element(By.CLASS_NAME, "upload-speed").text
         )
-
-        print(f"Download Speed: {self.down}")
-        print(f"Upload Speed: {self.up}")
 
     def tweet_at_provider(self):
 

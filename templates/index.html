@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Internet Speed Dashboard</title>
+</head>
+<body>
+
+<h1>Internet Speed Monitor</h1>
+
+<h3>Average Download Speed: {{ avg_download }} Mbps</h3>
+<h3>Average Upload Speed: {{ avg_upload }} Mbps</h3>
+
+<h2>Speed History</h2>
+
+<img src="{{ url_for('static', filename='speed_graph.png') }}">
+
+</body>
+</html>

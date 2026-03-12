@@ -1,0 +1,5 @@
+selenium
+flask
+pandas
+matplotlib
+python-dotenv
